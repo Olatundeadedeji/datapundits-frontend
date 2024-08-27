@@ -1,19 +1,16 @@
 <template>
-    <div>
-        <h1>Course List</h1>
-        <ul>
-            <li v-for="course in courses" :key="course.id" @click="selectCourse(course)">
-                {{ course.name }}
-            </li>
-        </ul>
-    </div>
+    <ul>
+        <li v-for="course in courses" :key="course.id" @click="props.onSelect(course)">
+            {{ course.name }}
+        </li>
+    </ul>
 </template>
 
 <script>
 import { ref } from 'vue';
 
 export default {
-    setup() {
+    setup(props, { emit }) {
 
         const courses = ref([
             { id: 1, name: 'Pandas Fundamentals' },
@@ -23,23 +20,27 @@ export default {
 
 
         const selectCourse = (course) => {
-            console.log(`Selected course: ${course.name}`);
+            emit('select', course);
         };
 
         return {
             courses,
-            selectCourse
+            selectCourse,
         };
-    }
+    },
 };
 </script>
 
 <style scoped>
+ul {
+    list-style-type: none;
+    padding-left: 0; 
+    margin-left: 0;  
+}
 li {
     cursor: pointer;
     margin: 5px 0;
 }
-
 
 li:hover {
     color: blue;
