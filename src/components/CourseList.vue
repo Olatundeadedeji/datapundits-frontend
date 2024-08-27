@@ -1,6 +1,6 @@
 <template>
     <ul>
-        <li v-for="course in courses" :key="course.id" @click="props.onSelect(course)">
+        <li v-for="course in courses" :key="course.id" @click="selectCourse(course)">
             {{ course.name }}
         </li>
     </ul>
@@ -11,13 +11,11 @@ import { ref } from 'vue';
 
 export default {
     setup(props, { emit }) {
-
         const courses = ref([
             { id: 1, name: 'Pandas Fundamentals' },
             { id: 2, name: 'Advanced Data Analysis' },
             { id: 3, name: 'Fundamentals of Machine Learning' },
         ]);
-
 
         const selectCourse = (course) => {
             emit('select', course);
@@ -34,9 +32,10 @@ export default {
 <style scoped>
 ul {
     list-style-type: none;
-    padding-left: 0; 
-    margin-left: 0;  
+    padding-left: 0;
+    margin-left: 0;
 }
+
 li {
     cursor: pointer;
     margin: 5px 0;
