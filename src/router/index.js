@@ -6,6 +6,7 @@ import Contact from '../views/Contact.vue';
 import Courses from '../components/CourseList.vue';
 import CourseDetails from '../components/CourseDetails.vue';
 import UserProfile from '../components/UserProfile.vue';
+import CourseInquiryForm from '../components/CourseInquiryForm.vue';
 
 
 const router = createRouter({
@@ -15,6 +16,7 @@ const router = createRouter({
     { path: '/about', name: 'About', component: About },
     { path: '/contact', name: 'Contact', component: Contact },
     { path: '/courses', name: 'Courses', component: Courses },
+    { path: '/courses-inquiry', name: 'CourseInquiryForm', component: CourseInquiryForm },
     {
       path: '/courses/:id', name: 'CourseDetails', component: CourseDetails,
       children: [
