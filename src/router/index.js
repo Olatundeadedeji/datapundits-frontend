@@ -7,6 +7,8 @@ import Courses from '../components/CourseList.vue';
 import CourseDetails from '../components/CourseDetails.vue';
 import UserProfile from '../components/UserProfile.vue';
 import CourseInquiryForm from '../components/CourseInquiryForm.vue';
+import Login from '../components/Login.vue';
+import RegisterForm from '../components/RegisterForm.vue';
 
 
 const router = createRouter({
@@ -17,6 +19,8 @@ const router = createRouter({
     { path: '/contact', name: 'Contact', component: Contact },
     { path: '/courses', name: 'Courses', component: Courses },
     { path: '/courses-inquiry', name: 'CourseInquiryForm', component: CourseInquiryForm },
+    { path: '/login', name: 'Login', component: Login },
+    { path: '/register', name: 'RegisterForm', component: RegisterForm },
     {
       path: '/courses/:id', name: 'CourseDetails', component: CourseDetails,
       children: [
