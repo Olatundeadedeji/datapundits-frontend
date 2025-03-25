@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header>
+    <header class="header">
       <nav>
         <div class="logo">
           Datapundits
@@ -15,90 +15,120 @@
       </nav>
     </header>
 
-    <h1 v-if="$route.name !== 'Home'">Learning Management System</h1>
+    <main class="main-content">
+      <router-view></router-view>
+    </main>
 
-    
+    <Footer />
   </div>
-  <router-view />
 </template>
 
-<script>
-import { ref } from 'vue';
-import UserProfile from './components/UserProfile.vue';
-import CourseList from './components/CourseList.vue';
-import CourseDetails from './components/CourseDetails.vue';
-
-export default {
-  components: {
-    UserProfile,
-    CourseList,
-    CourseDetails,
-  },
-  setup() {
-
-    const selectedCourse = ref(null);
-
-
-    const selectCourse = (course) => {
-      selectedCourse.value = course;
-    };
-
-    return {
-      selectedCourse,
-      selectCourse,
-    };
-  },
-};
+<script setup>
+import Footer from './components/Footer.vue'
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: center;
-  color: #2c3e50;
+:root {
+  --primary-black: #121212;
+  --secondary-black: #1E1E1E;
+  --tertiary-black: #2D2D2D;
+  --accent-color: #00FF94;
+  --text-primary: #FFFFFF;
+  --text-secondary: #B3B3B3;
+}
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-black);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: var(--secondary-black);
+  border-bottom: 1px solid var(--tertiary-black);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 nav {
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: #333;
+  padding: 1rem 2rem;
 }
 
 .logo {
-  margin-right: 20px;
-  color: antiquewhite;
-  font-weight: 900;
-}
-
-.logo img {
-  width: 50px;
-  height: 50px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .nav-links {
   display: flex;
-  align-items: center;
+  gap: 2rem;
 }
 
 .nav-link {
-  padding: 10px 20px;
-  margin: 0 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #444;
-  color: #fff;
+  color: var(--text-secondary);
   text-decoration: none;
-  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
 }
 
 .nav-link:hover {
-  background-color: #555;
+  color: var(--accent-color);
 }
 
-nav a.router-link-exact-active {
-  background-color: #666;
+.router-link-active {
+  color: var(--accent-color);
+  background-color: var(--tertiary-black);
+}
+
+.main-content {
+  margin-top: 4rem;
+  flex: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
 }
 </style>
