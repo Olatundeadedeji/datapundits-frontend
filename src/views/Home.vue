@@ -102,6 +102,8 @@ const courses = ref(courseStore.courses)
 
 .featured-courses {
   padding: 2rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .featured-courses h2 {
@@ -114,6 +116,7 @@ const courses = ref(courseStore.courses)
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  padding: 0 1rem;
 }
 
 .course-card {
@@ -146,6 +149,7 @@ const courses = ref(courseStore.courses)
 .course-content p {
   color: var(--text-secondary);
   margin-bottom: 1rem;
+  line-height: 1.5;
 }
 
 .course-meta {
@@ -153,6 +157,7 @@ const courses = ref(courseStore.courses)
   justify-content: space-between;
   color: var(--text-secondary);
   margin-bottom: 1rem;
+  font-size: 0.9rem;
 }
 
 .course-footer {
@@ -191,8 +196,21 @@ const courses = ref(courseStore.courses)
     font-size: 2.5rem;
   }
 
+  .hero p {
+    font-size: 1.1rem;
+  }
+
   .course-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .featured-courses {
+    padding: 1rem 0;
+  }
+
+  .featured-courses h2 {
+    margin-bottom: 2rem;
   }
 }
   </style>

@@ -101,3 +101,133 @@ const formatDate = (date) => {
   gap: 0.5rem;
   background: var(--secondary-black);
   padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.period-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.period-btn.active {
+  background: var(--accent-color);
+  color: var(--primary-black);
+}
+
+.earnings-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  background: var(--secondary-black);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--tertiary-black);
+}
+
+.summary-card h3 {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.amount {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.change {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.earnings-details {
+  background: var(--secondary-black);
+  border-radius: 12px;
+  border: 1px solid var(--tertiary-black);
+  padding: 1.5rem;
+}
+
+.earnings-details h3 {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--tertiary-black);
+}
+
+.transactions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--tertiary-black);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.transaction-item:hover {
+  background: var(--quaternary-black);
+}
+
+.transaction-info h4 {
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.transaction-date {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.transaction-amount {
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .earnings-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .period-selector {
+    overflow-x: auto;
+  }
+
+  .summary-card {
+    padding: 1rem;
+  }
+
+  .amount {
+    font-size: 1.5rem;
+  }
+
+  .transaction-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .transaction-amount {
+    align-self: flex-end;
+  }
+}
+</style>
+
